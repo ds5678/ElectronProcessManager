@@ -95,7 +95,7 @@ public class ViewModel : PageModel
             }
             catch
             {
-                MessageBoxOptions options = new("This application is unable to kill processes.")
+                MessageBoxOptions options = new("This process cannot be killed.")
                 {
                     Type = MessageBoxType.info,
                 };
