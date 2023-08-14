@@ -45,7 +45,11 @@ public class Program
             CreateMenu();
 
             // Open the Electron-Window here
-            await Electron.WindowManager.CreateWindowAsync();
+            BrowserWindowOptions options = new()
+            {
+                DarkTheme = true,
+            };
+            await Electron.WindowManager.CreateWindowAsync(options);
 
             app.WaitForShutdown();
         }
