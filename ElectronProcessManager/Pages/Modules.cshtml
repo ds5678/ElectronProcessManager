@@ -1,0 +1,32 @@
+﻿@page
+@model ElectronProcessManager.Pages.ModulesModel
+@{
+    ViewData["Title"] = Model.Name;
+}
+
+<div>
+    <h1>Modules</h1>
+    @if (Model.TryGetModules(out IEnumerable<string> modules, out Exception? error))
+    {
+        <ul>
+            @foreach (string module in @modules)
+            {
+                <li>
+                    @module
+                </li>
+            }
+        </ul>
+    }
+    else if (error != null)
+    {
+        <pre>@error</pre>
+    }
+    else
+    {
+        <p>Modules not available.</p>
+    }
+</div>
+<div>
+    <hr />
+    <a class="btn btn-light" asp-page="./View" asp-route-id="@Model.Id">Back to View</a>
+</div>

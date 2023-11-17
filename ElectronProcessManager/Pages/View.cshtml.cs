@@ -19,6 +19,8 @@ public class ViewModel : PageModel
 
     public Process? Process { get; set; }
 
+    public int? Id => Process?.Id;
+
     public IEnumerable<KeyValuePair<string, object>> Properties
     {
         get
